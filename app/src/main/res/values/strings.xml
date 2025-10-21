@@ -1,4 +1,5 @@
 <resources>
+    <string name="app_name">VKEducation</string>
 
     <string name="category_app">Приложения</string>
     <string name="category_game">Игры</string>
@@ -15,8 +16,8 @@
 
     <string name="app_details_developer">Разработчик</string>
 
-    <string name="under_developement">В процессе разработки</string>
-    <string name="app_name">VKEducation</string>
+    <string name="under_development">В процессе разработки</string>
 
-    <string name="on_label_click_message">Ты зачем сюда кликнул?</string>
+    <string name="app_details_error">Произошла непредвиденная ошибка</string>
+    <string name="app_details_error_refresh">Перезагрузить</string>
 </resources>
