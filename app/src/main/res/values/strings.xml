@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">VKEducation</string>
+    <string name="text_for_second_activity">Текст для второй активити</string>
+    <string name="edit_text_placeholder">Введите текст</string>
 </resources>
