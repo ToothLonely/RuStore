@@ -3,6 +3,7 @@ package dev.toothlonely.vkeducation
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -16,6 +17,10 @@ fun SecondScreen(message: String, modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier.fillMaxSize(),
     ) {
-        Text(text = message)
+        OutlinedTextField(
+            value = message,
+            onValueChange = {},
+            readOnly = true,
+            placeholder = { Text("Было передано пустое сообщение") })
     }
 }
