@@ -1,4 +1,4 @@
-package io.mmaltsev.vkeducation
+package dev.toothlonely.vkeducation
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
@@ -23,7 +23,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
-import io.mmaltsev.vkeducation.ui.theme.VkEducationTheme
+import dev.toothlonely.vkeducation.ui.theme.VKEducationTheme
 import kotlin.math.roundToInt
 
 @Composable
@@ -110,7 +110,7 @@ private fun Preview() {
         description = "Легендарный рейд героев в Фэнтези РПГ. Станьте героем гильдии и зразите мастера подземелья!"
 
     )
-    VkEducationTheme {
+    VKEducationTheme {
         AppDetailsHeader(app = app, modifier = Modifier.fillMaxWidth())
     }
 }

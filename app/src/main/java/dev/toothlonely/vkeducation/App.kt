@@ -1,4 +1,4 @@
-package io.mmaltsev.vkeducation
+package dev.toothlonely.vkeducation
 
 data class App(
     val name: String,

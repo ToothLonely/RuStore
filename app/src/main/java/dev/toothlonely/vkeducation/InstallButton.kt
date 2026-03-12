@@ -1,4 +1,4 @@
-package io.mmaltsev.vkeducation
+package dev.toothlonely.vkeducation
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import io.mmaltsev.vkeducation.ui.theme.VkEducationTheme
+import dev.toothlonely.vkeducation.ui.theme.VKEducationTheme
 
 @Composable
 fun InstallButton(
@@ -30,7 +30,7 @@ fun InstallButton(
 @Preview
 @Composable
 private fun Preview() {
-    VkEducationTheme {
+    VKEducationTheme {
         InstallButton(
             onClick = {},
             modifier = Modifier.fillMaxWidth(),

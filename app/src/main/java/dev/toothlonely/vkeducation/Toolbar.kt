@@ -1,4 +1,4 @@
-package io.mmaltsev.vkeducation
+package dev.toothlonely.vkeducation
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -11,8 +11,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import io.mmaltsev.vkeducation.ui.theme.VkEducationTheme
 
 @Composable
 internal fun Toolbar(
@@ -39,16 +37,5 @@ internal fun Toolbar(
                 tint = MaterialTheme.colorScheme.primary,
             )
         }
-    }
-}
-
-@Preview
-@Composable
-private fun Preview() {
-    VkEducationTheme {
-        Toolbar(
-            onBackClick = {},
-            onShareClick = {},
-        )
     }
 }

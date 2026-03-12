@@ -1,4 +1,4 @@
-package io.mmaltsev.vkeducation
+package dev.toothlonely.vkeducation
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -13,7 +13,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import io.mmaltsev.vkeducation.ui.theme.VkEducationTheme
+import dev.toothlonely.vkeducation.ui.theme.VKEducationTheme
 
 @Composable
 fun AppDescription(
@@ -47,7 +47,7 @@ fun AppDescription(
 @Preview
 @Composable
 private fun PreviewShort() {
-    VkEducationTheme {
+    VKEducationTheme {
         AppDescription(
             description = "Легендарный рейд героев в Фэнтези РПГ. Станьте героем гильдии и зразите мастера подземелья!",
             onReadMoreClick = {},
@@ -59,7 +59,7 @@ private fun PreviewShort() {
 @Preview
 @Composable
 private fun PreviewCollapsed() {
-    VkEducationTheme {
+    VKEducationTheme {
         AppDescription(
             description = "Легендарный рейд героев в Фэнтези РПГ. Станьте героем гильдии и зразите мастера подземелья!",
             onReadMoreClick = {},

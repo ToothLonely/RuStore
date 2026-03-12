@@ -1,4 +1,4 @@
-package io.mmaltsev.vkeducation
+package dev.toothlonely.vkeducation
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -18,7 +18,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
-import io.mmaltsev.vkeducation.ui.theme.VkEducationTheme
+import dev.toothlonely.vkeducation.ui.theme.VKEducationTheme
 
 @Composable
 fun ScreenshotsList(
@@ -53,7 +53,7 @@ fun ScreenshotsList(
 @Preview
 @Composable
 private fun Preview() {
-    VkEducationTheme {
+    VKEducationTheme {
         ScreenshotsList(
             screenshotUrlList = listOf(
                 "https://static.rustore.ru/imgproxy/-y8kd-4B6MQ-1OKbAbnoAIMZAzvoMMG9dSiHMpFaTBc/preset:web_scr_lnd_335/plain/https://static.rustore.ru/apk/393868735/content/SCREENSHOT/dfd33017-e90d-4990-aa8c-6f159d546788.jpg@webp",

@@ -33,8 +33,9 @@ fun Navigation(
         }
 
         composable<Screen.AppInfo> { backStackEntry ->
-            val appItem = backStackEntry.toRoute<Screen.AppInfo>()
-            AppInfoScreen(applicationId = appItem.applicationId)
+/*            val appItem = backStackEntry.toRoute<Screen.AppInfo>()
+            AppInfoScreen(applicationId = appItem.applicationId)*/
+            AppDetailsScreen()
         }
     }
 }
