@@ -28,6 +28,7 @@ import dev.toothlonely.vkeducation.presentation.ui.theme.VKEducationTheme
 @Composable
 fun AppDetailsScreen(
     modifier: Modifier = Modifier,
+    appItem: App? = null,
 ) {
     val app = remember { getApp() }
 
