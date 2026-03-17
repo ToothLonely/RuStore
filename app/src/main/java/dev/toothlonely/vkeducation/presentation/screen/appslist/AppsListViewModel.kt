@@ -3,15 +3,20 @@ package dev.toothlonely.vkeducation.presentation.screen.appslist
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dev.toothlonely.vkeducation.data.STUB
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 
 class AppsListViewModel : ViewModel() {
 
     private val _state = MutableStateFlow<AppsListState>(AppsListState.Loading)
     val state = _state.asStateFlow()
+
+    private val _events = Channel<AppsListEvent>(Channel.BUFFERED)
+    val events = _events.receiveAsFlow()
 
     init {
         loadApps()
@@ -28,5 +33,9 @@ class AppsListViewModel : ViewModel() {
                 _state.value = AppsListState.ErrorLoading
             }
         }
+    }
+
+    fun onLabelClick() = viewModelScope.launch {
+        _events.send(AppsListEvent.OnRuStoreLabelClicked("Ты зачем сюда кликнул?"))
     }
 }

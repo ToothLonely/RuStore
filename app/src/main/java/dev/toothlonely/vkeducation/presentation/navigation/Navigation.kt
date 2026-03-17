@@ -1,5 +1,6 @@
 package dev.toothlonely.vkeducation.presentation.navigation
 
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -22,6 +23,7 @@ sealed interface Screen {
 
 @Composable
 fun Navigation(
+    snackBarHostState: SnackbarHostState,
     navController: NavHostController,
     modifier: Modifier,
 ) {
@@ -30,7 +32,10 @@ fun Navigation(
         startDestination = Screen.AppsList
     ) {
         composable<Screen.AppsList> {
-            AppsListScreen(modifier = modifier) { destination ->
+            AppsListScreen(
+                snackBarHostState = snackBarHostState,
+                modifier = modifier
+            ) { destination ->
                 navController.navigate(destination)
             }
         }

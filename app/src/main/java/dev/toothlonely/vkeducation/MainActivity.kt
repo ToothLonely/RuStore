@@ -7,7 +7,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import dev.toothlonely.vkeducation.presentation.navigation.Navigation
@@ -19,8 +22,17 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             VKEducationTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    MainNavigation(modifier = Modifier.padding(innerPadding))
+                val snackBarHostState = remember { SnackbarHostState() }
+                Scaffold(
+                    snackbarHost = {
+                        SnackbarHost(hostState = snackBarHostState)
+                    },
+                    modifier = Modifier.fillMaxSize()
+                ) { innerPadding ->
+                    MainNavigation(
+                        snackBarHostState = snackBarHostState,
+                        modifier = Modifier.padding(innerPadding)
+                    )
                 }
             }
         }
@@ -28,7 +40,11 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MainNavigation(modifier: Modifier) {
+fun MainNavigation(snackBarHostState: SnackbarHostState, modifier: Modifier) {
     val navController = rememberNavController()
-    Navigation(navController = navController, modifier = modifier)
+    Navigation(
+        snackBarHostState = snackBarHostState,
+        navController = navController,
+        modifier = modifier
+    )
 }

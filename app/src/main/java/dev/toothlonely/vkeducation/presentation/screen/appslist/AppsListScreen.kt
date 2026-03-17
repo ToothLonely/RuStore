@@ -10,13 +10,14 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -24,10 +25,23 @@ import dev.toothlonely.vkeducation.domain.App
 import dev.toothlonely.vkeducation.presentation.navigation.Screen
 
 @Composable
-fun AppsListScreen(modifier: Modifier = Modifier, onNavigateTo: (Screen) -> Unit) {
+fun AppsListScreen(
+    snackBarHostState: SnackbarHostState,
+    modifier: Modifier = Modifier, onNavigateTo: (Screen) -> Unit
+) {
 
     val viewModel = viewModel<AppsListViewModel>()
     val state by viewModel.state.collectAsStateWithLifecycle()
+
+    LaunchedEffect(viewModel.events) {
+        viewModel.events.collect { event ->
+            when (event) {
+                is AppsListEvent.OnRuStoreLabelClicked -> {
+                    snackBarHostState.showSnackbar(message = event.message)
+                }
+            }
+        }
+    }
 
     when (val currentState = state) {
         AppsListState.Loading -> {
@@ -59,17 +73,13 @@ fun AppsListScreen(modifier: Modifier = Modifier, onNavigateTo: (Screen) -> Unit
                         .padding(horizontal = 20.dp)
                         .height(110.dp)
                 ) {
-                    RuStoreLabel()
+                    RuStoreLabel {
+                        viewModel.onLabelClick()
+                    }
                     FourSquaresIcon()
                 }
                 AppsListView(apps = apps, onNavigateTo = onNavigateTo)
             }
         }
     }
-}
-
-@Composable
-@Preview(showBackground = true)
-fun AppsListScreenPreview() {
-    AppsListScreen(modifier = Modifier, {})
 }

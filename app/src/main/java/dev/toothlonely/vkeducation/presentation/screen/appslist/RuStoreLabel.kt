@@ -1,6 +1,7 @@
 package dev.toothlonely.vkeducation.presentation.screen.appslist
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -22,7 +23,7 @@ import androidx.compose.ui.unit.sp
 import dev.toothlonely.vkeducation.R
 
 @Composable
-fun RuStoreLabel() {
+fun RuStoreLabel(onClick: () -> Unit = {}) {
 
     val ruStoreLabelTextStyle = TextStyle(
         fontWeight = FontWeight.ExtraBold,
@@ -32,7 +33,10 @@ fun RuStoreLabel() {
 
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(8.dp)
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        modifier = Modifier.clickable {
+            onClick()
+        }
     ) {
         Box(
             contentAlignment = Alignment.Center,
