@@ -29,7 +29,7 @@ fun AppsListScreen(modifier: Modifier = Modifier, onNavigateTo: (Screen) -> Unit
     val viewModel = viewModel<AppsListViewModel>()
     val state by viewModel.state.collectAsStateWithLifecycle()
 
-    when (state) {
+    when (val currentState = state) {
         AppsListState.Loading -> {
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                 CircularProgressIndicator()
@@ -44,7 +44,7 @@ fun AppsListScreen(modifier: Modifier = Modifier, onNavigateTo: (Screen) -> Unit
 
         is AppsListState.Loaded -> {
 
-            val apps: List<App> = (state as AppsListState.Loaded).apps
+            val apps: List<App> = currentState.apps
 
             Column(
                 modifier = modifier
