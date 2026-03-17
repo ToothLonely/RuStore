@@ -18,6 +18,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -32,12 +33,13 @@ fun AppsListScreen(
 
     val viewModel = viewModel<AppsListViewModel>()
     val state by viewModel.state.collectAsStateWithLifecycle()
+    val context = LocalContext.current
 
     LaunchedEffect(viewModel.events) {
         viewModel.events.collect { event ->
             when (event) {
                 is AppsListEvent.OnRuStoreLabelClicked -> {
-                    snackBarHostState.showSnackbar(message = event.message)
+                    snackBarHostState.showSnackbar(message = context.getString(event.messageResId))
                 }
             }
         }

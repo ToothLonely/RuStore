@@ -2,6 +2,7 @@ package dev.toothlonely.vkeducation.presentation.screen.appslist
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dev.toothlonely.vkeducation.R
 import dev.toothlonely.vkeducation.data.STUB
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
@@ -36,6 +37,6 @@ class AppsListViewModel : ViewModel() {
     }
 
     fun onLabelClick() = viewModelScope.launch {
-        _events.send(AppsListEvent.OnRuStoreLabelClicked("Ты зачем сюда кликнул?"))
+        _events.send(AppsListEvent.OnRuStoreLabelClicked(R.string.on_label_click_message))
     }
 }

@@ -17,4 +17,6 @@
 
     <string name="under_developement">В процессе разработки</string>
     <string name="app_name">VKEducation</string>
+
+    <string name="on_label_click_message">Ты зачем сюда кликнул?</string>
 </resources>
