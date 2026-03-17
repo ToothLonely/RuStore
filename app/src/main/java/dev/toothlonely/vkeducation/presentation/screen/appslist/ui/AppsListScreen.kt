@@ -1,4 +1,4 @@
-package dev.toothlonely.vkeducation.presentation.screen.appslist
+package dev.toothlonely.vkeducation.presentation.screen.appslist.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -24,6 +24,9 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import dev.toothlonely.vkeducation.domain.App
 import dev.toothlonely.vkeducation.presentation.navigation.Screen
+import dev.toothlonely.vkeducation.presentation.screen.appslist.viewmodel.AppsListEvent
+import dev.toothlonely.vkeducation.presentation.screen.appslist.viewmodel.AppsListState
+import dev.toothlonely.vkeducation.presentation.screen.appslist.viewmodel.AppsListViewModel
 
 @Composable
 fun AppsListScreen(

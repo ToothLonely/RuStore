@@ -1,4 +1,4 @@
-package dev.toothlonely.vkeducation.presentation.screen.appslist
+package dev.toothlonely.vkeducation.presentation.screen.appslist.viewmodel
 
 import dev.toothlonely.vkeducation.domain.App
 

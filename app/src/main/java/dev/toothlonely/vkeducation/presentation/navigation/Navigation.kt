@@ -9,7 +9,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
 import dev.toothlonely.vkeducation.data.STUB
 import dev.toothlonely.vkeducation.presentation.screen.appdetails.AppDetailsScreen
-import dev.toothlonely.vkeducation.presentation.screen.appslist.AppsListScreen
+import dev.toothlonely.vkeducation.presentation.screen.appslist.ui.AppsListScreen
 import kotlinx.serialization.Serializable
 
 sealed interface Screen {

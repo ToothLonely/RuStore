@@ -1,4 +1,4 @@
-package dev.toothlonely.vkeducation.presentation.screen.appslist
+package dev.toothlonely.vkeducation.presentation.screen.appslist.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

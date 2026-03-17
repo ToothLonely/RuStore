@@ -1,4 +1,4 @@
-package dev.toothlonely.vkeducation.presentation.screen.appslist
+package dev.toothlonely.vkeducation.presentation.screen.appslist.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
