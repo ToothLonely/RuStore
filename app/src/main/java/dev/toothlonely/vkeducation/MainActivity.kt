@@ -7,11 +7,14 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import dev.toothlonely.vkeducation.ui.theme.VKEducationTheme
+import androidx.navigation.compose.rememberNavController
+import dev.toothlonely.vkeducation.presentation.navigation.Navigation
+import dev.toothlonely.vkeducation.presentation.ui.theme.VKEducationTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,9 +22,15 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             VKEducationTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+                val snackBarHostState = remember { SnackbarHostState() }
+                Scaffold(
+                    snackbarHost = {
+                        SnackbarHost(hostState = snackBarHostState)
+                    },
+                    modifier = Modifier.fillMaxSize()
+                ) { innerPadding ->
+                    MainNavigation(
+                        snackBarHostState = snackBarHostState,
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -31,17 +40,11 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
+fun MainNavigation(snackBarHostState: SnackbarHostState, modifier: Modifier) {
+    val navController = rememberNavController()
+    Navigation(
+        snackBarHostState = snackBarHostState,
+        navController = navController,
         modifier = modifier
     )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    VKEducationTheme {
-        Greeting("Android")
-    }
 }

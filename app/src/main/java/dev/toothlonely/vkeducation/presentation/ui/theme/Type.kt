@@ -1,4 +1,4 @@
-package dev.toothlonely.vkeducation.ui.theme
+package dev.toothlonely.vkeducation.presentation.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
