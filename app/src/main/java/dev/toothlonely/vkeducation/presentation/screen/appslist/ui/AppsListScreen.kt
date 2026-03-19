@@ -22,7 +22,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import dev.toothlonely.vkeducation.domain.App
+import dev.toothlonely.vkeducation.domain.AppDetails
 import dev.toothlonely.vkeducation.presentation.navigation.Screen
 import dev.toothlonely.vkeducation.presentation.screen.appslist.viewmodel.AppsListEvent
 import dev.toothlonely.vkeducation.presentation.screen.appslist.viewmodel.AppsListState
@@ -63,7 +63,7 @@ fun AppsListScreen(
 
         is AppsListState.Loaded -> {
 
-            val apps: List<App> = currentState.apps
+            val apps: List<AppDetails> = currentState.apps
 
             Column(
                 modifier = modifier

@@ -12,11 +12,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import dev.toothlonely.vkeducation.domain.App
+import dev.toothlonely.vkeducation.domain.AppDetails
 import dev.toothlonely.vkeducation.presentation.navigation.Screen
 
 @Composable
-fun AppsListView(apps: List<App>, onNavigateTo: (Screen) -> Unit = {}) {
+fun AppsListView(apps: List<AppDetails>, onNavigateTo: (Screen) -> Unit = {}) {
     LazyColumn(
         modifier = Modifier
             .clip(shape = RoundedCornerShape(topEnd = 10.dp, topStart = 10.dp))

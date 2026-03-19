@@ -1,12 +1,12 @@
 package dev.toothlonely.vkeducation.data
 
-import dev.toothlonely.vkeducation.domain.App
+import dev.toothlonely.vkeducation.domain.AppDetails
 import dev.toothlonely.vkeducation.domain.Category
 
 object STUB {
 
     private val apps = listOf(
-        App(
+        AppDetails(
             name = "ChatFlow",
             developer = "",
             category = Category.APP,
@@ -16,7 +16,7 @@ object STUB {
             screenshotUrlList = emptyList(),
             description = "Fast and secure messenger for everyday communication."
         ),
-        App(
+        AppDetails(
             name = "TaskZen",
             developer = "",
             category = Category.APP,
@@ -26,7 +26,7 @@ object STUB {
             screenshotUrlList = emptyList(),
             description = "Minimalistic task manager to keep your day organized."
         ),
-        App(
+        AppDetails(
             name = "FitPulse",
             developer = "",
             category = Category.APP,
@@ -36,7 +36,7 @@ object STUB {
             screenshotUrlList = emptyList(),
             description = "Track workouts and daily fitness progress."
         ),
-        App(
+        AppDetails(
             name = "PhotoMagic",
             developer = "",
             category = Category.APP,
@@ -46,7 +46,7 @@ object STUB {
             screenshotUrlList = emptyList(),
             description = "Powerful photo editor with filters and effects."
         ),
-        App(
+        AppDetails(
             name = "NoteSphere",
             developer = "",
             category = Category.APP,
@@ -56,7 +56,7 @@ object STUB {
             screenshotUrlList = emptyList(),
             description = "Smart notes with cloud synchronization."
         ),
-        App(
+        AppDetails(
             name = "WeatherCast",
             developer = "",
             category = Category.APP,
@@ -66,7 +66,7 @@ object STUB {
             screenshotUrlList = emptyList(),
             description = "Accurate weather forecasts with widgets."
         ),
-        App(
+        AppDetails(
             name = "TravelMate",
             developer = "",
             category = Category.APP,
@@ -76,7 +76,7 @@ object STUB {
             screenshotUrlList = emptyList(),
             description = "Plan trips and explore destinations."
         ),
-        App(
+        AppDetails(
             name = "BudgetWise",
             developer = "",
             category = Category.APP,
@@ -86,7 +86,7 @@ object STUB {
             screenshotUrlList = emptyList(),
             description = "Track your personal finances and spending."
         ),
-        App(
+        AppDetails(
             name = "MusicWave",
             developer = "",
             category = Category.APP,
@@ -96,7 +96,7 @@ object STUB {
             screenshotUrlList = emptyList(),
             description = "Discover and listen to millions of songs."
         ),
-        App(
+        AppDetails(
             name = "QuickTranslate",
             developer = "",
             category = Category.APP,
@@ -106,7 +106,7 @@ object STUB {
             screenshotUrlList = emptyList(),
             description = "Instant translation for dozens of languages."
         ),
-        App(
+        AppDetails(
             name = "FocusTimer",
             developer = "",
             category = Category.APP,
@@ -116,7 +116,7 @@ object STUB {
             screenshotUrlList = emptyList(),
             description = "Pomodoro timer for better productivity."
         ),
-        App(
+        AppDetails(
             name = "RecipeBook",
             developer = "",
             category = Category.APP,
@@ -126,7 +126,7 @@ object STUB {
             screenshotUrlList = emptyList(),
             description = "Explore and save recipes from around the world."
         ),
-        App(
+        AppDetails(
             name = "MapTrail",
             developer = "",
             category = Category.APP,
@@ -136,7 +136,7 @@ object STUB {
             screenshotUrlList = emptyList(),
             description = "Offline maps and navigation tools."
         ),
-        App(
+        AppDetails(
             name = "DailyNews",
             developer = "",
             category = Category.APP,
@@ -146,7 +146,7 @@ object STUB {
             screenshotUrlList = emptyList(),
             description = "Stay updated with global news."
         ),
-        App(
+        AppDetails(
             name = "SketchPad",
             developer = "",
             category = Category.APP,
@@ -156,7 +156,7 @@ object STUB {
             screenshotUrlList = emptyList(),
             description = "Draw and sketch digitally."
         ),
-        App(
+        AppDetails(
             name = "LanguageLeap",
             developer = "",
             category = Category.APP,
@@ -166,7 +166,7 @@ object STUB {
             screenshotUrlList = emptyList(),
             description = "Learn new languages interactively."
         ),
-        App(
+        AppDetails(
             name = "SmartScanner",
             developer = "",
             category = Category.APP,
@@ -176,7 +176,7 @@ object STUB {
             screenshotUrlList = emptyList(),
             description = "Scan documents and export as PDF."
         ),
-        App(
+        AppDetails(
             name = "HabitForge",
             developer = "",
             category = Category.APP,
@@ -186,7 +186,7 @@ object STUB {
             screenshotUrlList = emptyList(),
             description = "Build better habits with reminders."
         ),
-        App(
+        AppDetails(
             name = "GameHub",
             developer = "",
             category = Category.GAME,
@@ -196,7 +196,7 @@ object STUB {
             screenshotUrlList = emptyList(),
             description = "Collection of fun casual games."
         ),
-        App(
+        AppDetails(
             name = "SleepWell",
             developer = "",
             category = Category.APP,

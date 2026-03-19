@@ -1,6 +1,7 @@
 package dev.toothlonely.vkeducation.domain
 
-data class App(
+data class AppDetails(
+    val id: String = "",
     val name: String,
     val developer: String,
     val category: Category,
