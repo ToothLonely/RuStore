@@ -2,10 +2,8 @@ package dev.toothlonely.vkeducation.presentation.screen.appdetails
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import dev.toothlonely.vkeducation.domain.AppDetails
-import dev.toothlonely.vkeducation.domain.Category
-import io.mmaltsev.vkeducation.data.appdetails.AppDetailsRepositorImpl
-import io.mmaltsev.vkeducation.domain.appdetails.GetAppDetailsUseCase
+import dev.toothlonely.vkeducation.data.AppDetailsRepositorImpl
+import dev.toothlonely.vkeducation.domain.GetAppDetailsUseCase
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.Channel.Factory.BUFFERED
 import kotlinx.coroutines.flow.MutableStateFlow

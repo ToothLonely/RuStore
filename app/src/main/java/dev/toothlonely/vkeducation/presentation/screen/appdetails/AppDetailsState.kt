@@ -2,7 +2,6 @@ package dev.toothlonely.vkeducation.presentation.screen.appdetails
 
 import androidx.compose.runtime.Immutable
 import dev.toothlonely.vkeducation.domain.AppDetails
-import io.mmaltsev.vkeducation.domain.appdetails.AppDetails
 
 @Immutable
 sealed interface AppDetailsState {

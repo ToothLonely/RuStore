@@ -1,4 +1,4 @@
-package dev.toothlonely.vkeducation.data
+package dev.toothlonely.vkeducation.domain
 
 class GetAppDetailsUseCase(
     private val appDetailsRepository: AppDetailsRepository,

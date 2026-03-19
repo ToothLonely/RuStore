@@ -27,10 +27,6 @@ import dev.toothlonely.vkeducation.domain.AppDetails
 import dev.toothlonely.vkeducation.domain.Category
 import dev.toothlonely.vkeducation.R
 import dev.toothlonely.vkeducation.presentation.ui.theme.VKEducationTheme
-import io.mmaltsev.vkeducation.R
-import io.mmaltsev.vkeducation.domain.appdetails.AppDetails
-import io.mmaltsev.vkeducation.domain.appdetails.Category
-import io.mmaltsev.vkeducation.presentation.theme.VkEducationTheme
 import kotlin.math.roundToInt
 
 @Composable
@@ -118,6 +114,6 @@ private fun Preview() {
 
     )
     VKEducationTheme {
-        AppDetailsHeader(app = app, modifier = Modifier.fillMaxWidth())
+        AppDetailsHeader(appDetails = app, modifier = Modifier.fillMaxWidth())
     }
 }

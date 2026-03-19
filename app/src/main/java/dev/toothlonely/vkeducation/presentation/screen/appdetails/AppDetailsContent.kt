@@ -16,9 +16,6 @@ import androidx.compose.ui.unit.dp
 import dev.toothlonely.vkeducation.domain.AppDetails
 import dev.toothlonely.vkeducation.domain.Category
 import dev.toothlonely.vkeducation.presentation.ui.theme.VKEducationTheme
-import io.mmaltsev.vkeducation.domain.appdetails.AppDetails
-import io.mmaltsev.vkeducation.domain.appdetails.Category
-import io.mmaltsev.vkeducation.presentation.theme.VkEducationTheme
 
 @Composable
 fun AppDetailsContent(

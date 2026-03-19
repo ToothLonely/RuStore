@@ -1,15 +1,14 @@
 package dev.toothlonely.vkeducation.data
 
-import io.mmaltsev.vkeducation.domain.appdetails.AppDetails
-import io.mmaltsev.vkeducation.domain.appdetails.AppDetailsRepository
+import dev.toothlonely.vkeducation.domain.AppDetails
+import dev.toothlonely.vkeducation.domain.AppDetailsRepository
 
 class AppDetailsRepositorImpl : AppDetailsRepository {
     private val appApi = AppApi()
-    private val mapper = AppDetailsMapper()
 
     override suspend fun get(): AppDetails {
         val dto = appApi.get()
-        val domain = mapper.toDomain(dto)
+        val domain = AppDetailsMapper.toDomain(dto)
         return domain
     }
 }
