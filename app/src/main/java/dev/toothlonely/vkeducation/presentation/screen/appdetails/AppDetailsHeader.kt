@@ -23,7 +23,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
-import dev.toothlonely.vkeducation.domain.App
+import dev.toothlonely.vkeducation.domain.AppDetails
 import dev.toothlonely.vkeducation.domain.Category
 import dev.toothlonely.vkeducation.R
 import dev.toothlonely.vkeducation.presentation.ui.theme.VKEducationTheme
@@ -31,7 +31,7 @@ import kotlin.math.roundToInt
 
 @Composable
 fun AppDetailsHeader(
-    app: App,
+    app: AppDetails,
     modifier: Modifier = Modifier,
 ) {
     Row(
@@ -97,7 +97,7 @@ private fun getCategoryText(category: Category): String = when (category) {
 @Preview
 @Composable
 private fun Preview() {
-    val app = App(
+    val app = AppDetails(
         name = "Гильдия Героев: Экшен ММО РПГ",
         developer = "VK Play",
         category = Category.GAME,

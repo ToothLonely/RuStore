@@ -2,6 +2,7 @@ package dev.toothlonely.vkeducation.presentation.screen.appdetails
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dev.toothlonely.vkeducation.domain.AppDetails
 import dev.toothlonely.vkeducation.domain.Category
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.Channel.Factory.BUFFERED

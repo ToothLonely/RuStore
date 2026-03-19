@@ -15,14 +15,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import dev.toothlonely.vkeducation.domain.Category
 import dev.toothlonely.vkeducation.R
-import dev.toothlonely.vkeducation.domain.App
-import dev.toothlonely.vkeducation.presentation.ui.theme.VKEducationTheme
 import androidx.lifecycle.viewmodel.compose.viewModel
-import io.mmaltsev.vkeducation.R
 import kotlinx.coroutines.flow.Flow
 
 @Composable

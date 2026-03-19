@@ -13,6 +13,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import dev.toothlonely.vkeducation.domain.AppDetails
+import dev.toothlonely.vkeducation.domain.Category
 import dev.toothlonely.vkeducation.presentation.ui.theme.VKEducationTheme
 
 @Composable
@@ -35,7 +37,7 @@ fun AppDetailsContent(
         )
         Spacer(Modifier.height(8.dp))
         AppDetailsHeader(
-            appDetails = appDetails,
+            app = appDetails,
             modifier = Modifier.padding(horizontal = 16.dp),
         )
         Spacer(Modifier.height(16.dp))
@@ -82,6 +84,7 @@ private fun Preview() {
         AppDetailsContent(
             content = AppDetailsState.Content(
                 appDetails = AppDetails(
+                    id = "",
                     name = "Гильдия Героев: Экшен ММО РПГ",
                     developer = "VK Play",
                     category = Category.GAME,

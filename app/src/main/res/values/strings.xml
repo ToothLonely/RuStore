@@ -20,4 +20,6 @@
 
     <string name="app_details_error">Произошла непредвиденная ошибка</string>
     <string name="app_details_error_refresh">Перезагрузить</string>
+
+    <string name="on_label_click_message">Ну и зачем ты сюда кликнул?</string>
 </resources>

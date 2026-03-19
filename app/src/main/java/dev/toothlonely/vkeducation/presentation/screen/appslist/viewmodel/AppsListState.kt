@@ -1,6 +1,6 @@
 package dev.toothlonely.vkeducation.presentation.screen.appslist.viewmodel
 
-import dev.toothlonely.vkeducation.domain.App
+import dev.toothlonely.vkeducation.domain.AppDetails
 
 sealed interface AppsListState {
 
@@ -8,5 +8,5 @@ sealed interface AppsListState {
 
     data object ErrorLoading : AppsListState
 
-    data class Loaded(val apps: List<App>) : AppsListState
+    data class Loaded(val apps: List<AppDetails>) : AppsListState
 }

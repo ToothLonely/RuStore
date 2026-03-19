@@ -19,11 +19,11 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
-import dev.toothlonely.vkeducation.domain.App
+import dev.toothlonely.vkeducation.domain.AppDetails
 
 @Composable
 fun AppItem(
-    application: App,
+    application: AppDetails,
     modifier: Modifier,
 ) {
 
