@@ -3,7 +3,8 @@ package dev.toothlonely.vkeducation.presentation.screen.appslist.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dev.toothlonely.vkeducation.R
-import dev.toothlonely.vkeducation.data.STUB
+import dev.toothlonely.vkeducation.data.AppsListApi
+import dev.toothlonely.vkeducation.data.AppsListRepositoryImpl
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -13,6 +14,9 @@ import kotlinx.coroutines.launch
 
 class AppsListViewModel : ViewModel() {
 
+    val repository = AppsListRepositoryImpl(
+        api = AppsListApi()
+    )
     private val _state = MutableStateFlow<AppsListState>(AppsListState.Loading)
     val state = _state.asStateFlow()
 
@@ -28,7 +32,7 @@ class AppsListViewModel : ViewModel() {
             runCatching {
                 _state.value = AppsListState.Loading
                 delay(1000L)
-                val apps = STUB.getAllApps()
+                val apps = repository.getAppsList()
                 _state.value = AppsListState.Loaded(apps)
             }.onFailure {
                 _state.value = AppsListState.ErrorLoading
