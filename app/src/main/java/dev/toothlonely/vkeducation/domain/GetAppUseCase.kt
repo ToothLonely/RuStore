@@ -1,6 +1,8 @@
 package dev.toothlonely.vkeducation.domain
 
-class GetAppDetailsUseCase(
+import javax.inject.Inject
+
+class GetAppDetailsUseCase @Inject constructor(
     private val appDetailsRepository: AppDetailsRepository,
 ) {
     suspend operator fun invoke(): AppDetails {

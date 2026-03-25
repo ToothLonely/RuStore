@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import dev.toothlonely.vkeducation.domain.AppDetails
@@ -34,7 +35,7 @@ fun AppsListScreen(
     modifier: Modifier = Modifier, onNavigateTo: (Screen) -> Unit
 ) {
 
-    val viewModel = viewModel<AppsListViewModel>()
+    val viewModel = hiltViewModel<AppsListViewModel>()
     val state by viewModel.state.collectAsStateWithLifecycle()
     val context = LocalContext.current
 
