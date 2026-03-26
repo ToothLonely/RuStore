@@ -1,5 +1,6 @@
-package dev.toothlonely.vkeducation.data
+package dev.toothlonely.vkeducation.data.appslist
 
+import dev.toothlonely.vkeducation.data.appdetails.AppDetailsMapper
 import dev.toothlonely.vkeducation.domain.AppDetails
 import dev.toothlonely.vkeducation.domain.AppsListRepository
 import javax.inject.Inject

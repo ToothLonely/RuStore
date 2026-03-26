@@ -1,6 +1,5 @@
-package dev.toothlonely.vkeducation.data
+package dev.toothlonely.vkeducation.data.appdetails
 
-import dev.toothlonely.vkeducation.domain.Category
 import kotlinx.serialization.Serializable
 
 @Serializable

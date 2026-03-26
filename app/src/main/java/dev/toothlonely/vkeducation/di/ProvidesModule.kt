@@ -4,8 +4,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dev.toothlonely.vkeducation.data.AppDetailsService
-import dev.toothlonely.vkeducation.data.AppsListService
+import dev.toothlonely.vkeducation.data.appdetails.AppDetailsService
+import dev.toothlonely.vkeducation.data.appslist.AppsListService
 import dev.toothlonely.vkeducation.data.BASE_URL
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType

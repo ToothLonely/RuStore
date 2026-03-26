@@ -1,4 +1,4 @@
-package dev.toothlonely.vkeducation.data
+package dev.toothlonely.vkeducation.data.appdetails
 
 import retrofit2.http.GET
 import retrofit2.http.Path
