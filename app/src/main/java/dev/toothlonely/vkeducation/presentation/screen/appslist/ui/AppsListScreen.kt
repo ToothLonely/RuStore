@@ -22,7 +22,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
 import dev.toothlonely.vkeducation.domain.AppDetails
 import dev.toothlonely.vkeducation.presentation.navigation.Screen
 import dev.toothlonely.vkeducation.presentation.screen.appslist.viewmodel.AppsListEvent

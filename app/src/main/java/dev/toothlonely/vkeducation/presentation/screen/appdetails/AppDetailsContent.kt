@@ -14,7 +14,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.toothlonely.vkeducation.domain.AppDetails
-import dev.toothlonely.vkeducation.domain.Category
 import dev.toothlonely.vkeducation.presentation.ui.theme.VKEducationTheme
 
 @Composable

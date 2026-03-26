@@ -24,7 +24,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import dev.toothlonely.vkeducation.domain.AppDetails
-import dev.toothlonely.vkeducation.domain.Category
 import dev.toothlonely.vkeducation.R
 import dev.toothlonely.vkeducation.presentation.ui.theme.VKEducationTheme
 import kotlin.math.roundToInt
@@ -85,14 +84,6 @@ fun AppDetailsHeader(
         }
     }
 }
-
-// Статичные строки, которые не приходят из бэкенда
-// нужно хранить в ресурсах (strings.xml).
-/*@Composable
-private fun getCategoryText(category: Category): String = when (category) {
-    Category.APP -> stringResource(R.string.category_app)
-    Category.GAME -> stringResource(R.string.category_game)
-}*/
 
 @Preview
 @Composable
