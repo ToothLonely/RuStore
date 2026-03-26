@@ -1,7 +1,7 @@
 package dev.toothlonely.vkeducation.data
 
 object STUB {
-
+/*
     private val apps = listOf(
         AppDetailsDto(
             name = "ChatFlow",
@@ -203,9 +203,9 @@ object STUB {
             screenshotUrlList = emptyList(),
             description = "Relaxing sounds and sleep tracking."
         )
-    )
+    )*/
 
-    fun getAllApps() = apps
+/*    fun getAllApps() = apps
 
-    fun getAppByName(name: String) = apps.find { it.name == name }
+    fun getAppByName(name: String) = apps.find { it.name == name }*/
 }

@@ -1,10 +1,12 @@
 package dev.toothlonely.vkeducation.presentation.screen.appdetails
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.toRoute
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.toothlonely.vkeducation.data.AppDetailsRepositorImpl
 import dev.toothlonely.vkeducation.domain.GetAppDetailsUseCase
+import dev.toothlonely.vkeducation.presentation.navigation.Screen
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.Channel.Factory.BUFFERED
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -16,8 +18,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AppDetailsViewModel @Inject constructor(
-    private val getAppDetailsUseCase: GetAppDetailsUseCase
+    private val getAppDetailsUseCase: GetAppDetailsUseCase,
+    savedStateHandle: SavedStateHandle
 ) : ViewModel() {
+
+    private val appId = savedStateHandle.toRoute<Screen.AppDetails>().applicationId
 
     private val _state = MutableStateFlow<AppDetailsState>(AppDetailsState.Loading)
     val state = _state.asStateFlow()
@@ -50,7 +55,7 @@ class AppDetailsViewModel @Inject constructor(
             _state.value = AppDetailsState.Loading
 
             runCatching {
-                val appDetails = getAppDetailsUseCase()
+                val appDetails = getAppDetailsUseCase(appId)
 
                 _state.value = AppDetailsState.Content(
                     appDetails = appDetails,

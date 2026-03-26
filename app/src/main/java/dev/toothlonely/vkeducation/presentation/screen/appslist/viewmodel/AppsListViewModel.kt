@@ -1,5 +1,6 @@
 package dev.toothlonely.vkeducation.presentation.screen.appslist.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -35,7 +36,8 @@ class AppsListViewModel @Inject constructor(
                 delay(1000L)
                 val apps = repository.getAppsList()
                 _state.value = AppsListState.Loaded(apps)
-            }.onFailure {
+            }.onFailure { throwable ->
+                Log.e("NETWORK", "Error", throwable)
                 _state.value = AppsListState.ErrorLoading
             }
         }

@@ -48,10 +48,12 @@ fun AppDetailsContent(
                 .padding(horizontal = 16.dp)
         )
         Spacer(Modifier.height(12.dp))
-        ScreenshotsList(
-            screenshotUrlList = appDetails.screenshotUrlList,
-            contentPadding = PaddingValues(horizontal = 16.dp),
-        )
+        if(appDetails.screenshotUrlList != null){
+            ScreenshotsList(
+                screenshotUrlList = appDetails.screenshotUrlList,
+                contentPadding = PaddingValues(horizontal = 16.dp),
+            )
+        }
         Spacer(Modifier.height(12.dp))
         AppDescription(
             description = appDetails.description,
@@ -87,9 +89,9 @@ private fun Preview() {
                     id = "",
                     name = "Гильдия Героев: Экшен ММО РПГ",
                     developer = "VK Play",
-                    category = Category.GAME,
+                    category = "Category.GAME",
                     ageRating = 12,
-                    size = 223.7f,
+                    size = 223.7,
                     screenshotUrlList = listOf(
                         "https://static.rustore.ru/imgproxy/-y8kd-4B6MQ-1OKbAbnoAIMZAzvoMMG9dSiHMpFaTBc/preset:web_scr_lnd_335/plain/https://static.rustore.ru/apk/393868735/content/SCREENSHOT/dfd33017-e90d-4990-aa8c-6f159d546788.jpg@webp",
                         "https://static.rustore.ru/imgproxy/dZCvNtRKKFpzOmGlTxLszUPmwi661IhXynYZGsJQvLw/preset:web_scr_lnd_335/plain/https://static.rustore.ru/apk/393868735/content/SCREENSHOT/60ec4cbc-dcf6-4e69-aa6f-cc2da7de1af6.jpg@webp",

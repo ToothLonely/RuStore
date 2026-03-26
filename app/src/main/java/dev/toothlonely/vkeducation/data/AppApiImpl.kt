@@ -5,6 +5,7 @@ import javax.inject.Inject
 import kotlin.time.Duration.Companion.seconds
 
 // Представим, что этот класс ходит в сеть.
+/*
 class AppApiImpl @Inject constructor() : AppApi {
     override suspend fun get(): AppDetailsDto {
         // Эмулируем загрузку с бэкенда
@@ -26,4 +27,4 @@ class AppApiImpl @Inject constructor() : AppApi {
         )
         return app
     }
-}
+}*/

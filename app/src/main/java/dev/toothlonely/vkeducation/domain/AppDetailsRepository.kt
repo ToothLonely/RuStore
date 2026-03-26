@@ -1,5 +1,5 @@
 package dev.toothlonely.vkeducation.domain
 
 interface AppDetailsRepository {
-    suspend fun get(): AppDetails
+    suspend fun getAppDetails(id: String): AppDetails
 }

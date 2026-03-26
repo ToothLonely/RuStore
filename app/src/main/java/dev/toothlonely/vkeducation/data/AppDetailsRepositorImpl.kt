@@ -5,11 +5,11 @@ import dev.toothlonely.vkeducation.domain.AppDetailsRepository
 import javax.inject.Inject
 
 class AppDetailsRepositorImpl @Inject constructor(
-    private val appApi: AppApi
+    private val service: AppDetailsService
 ) : AppDetailsRepository {
 
-    override suspend fun get(): AppDetails {
-        val dto = appApi.get()
+    override suspend fun getAppDetails(id: String): AppDetails {
+        val dto = service.getAppDetails(id)
         val domain = AppDetailsMapper.toDomain(dto)
         return domain
     }

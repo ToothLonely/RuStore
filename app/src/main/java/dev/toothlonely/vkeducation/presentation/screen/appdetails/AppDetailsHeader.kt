@@ -49,7 +49,7 @@ fun AppDetailsHeader(
         Spacer(Modifier.width(16.dp))
         Column {
             Text(
-                text = getCategoryText(appDetails.category),
+                text = appDetails.category,
                 color = MaterialTheme.colorScheme.secondary,
                 fontSize = 12.sp,
             )
@@ -88,11 +88,11 @@ fun AppDetailsHeader(
 
 // Статичные строки, которые не приходят из бэкенда
 // нужно хранить в ресурсах (strings.xml).
-@Composable
+/*@Composable
 private fun getCategoryText(category: Category): String = when (category) {
     Category.APP -> stringResource(R.string.category_app)
     Category.GAME -> stringResource(R.string.category_game)
-}
+}*/
 
 @Preview
 @Composable
@@ -100,9 +100,9 @@ private fun Preview() {
     val app = AppDetails(
         name = "Гильдия Героев: Экшен ММО РПГ",
         developer = "VK Play",
-        category = Category.GAME,
+        category = "Category.GAME",
         ageRating = 12,
-        size = 223.7f,
+        size = 223.7,
         screenshotUrlList = listOf(
             "https://static.rustore.ru/imgproxy/-y8kd-4B6MQ-1OKbAbnoAIMZAzvoMMG9dSiHMpFaTBc/preset:web_scr_lnd_335/plain/https://static.rustore.ru/apk/393868735/content/SCREENSHOT/dfd33017-e90d-4990-aa8c-6f159d546788.jpg@webp",
             "https://static.rustore.ru/imgproxy/dZCvNtRKKFpzOmGlTxLszUPmwi661IhXynYZGsJQvLw/preset:web_scr_lnd_335/plain/https://static.rustore.ru/apk/393868735/content/SCREENSHOT/60ec4cbc-dcf6-4e69-aa6f-cc2da7de1af6.jpg@webp",

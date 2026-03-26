@@ -5,12 +5,12 @@ import dev.toothlonely.vkeducation.domain.AppsListRepository
 import javax.inject.Inject
 
 class AppsListRepositoryImpl @Inject constructor(
-    private val api: AppsListApi
+    private val service: AppsListService
 ) : AppsListRepository {
     override suspend fun getAppsList(): List<AppDetails> {
-        val apps = api.getAppsList()
-        return apps.map { app ->
-            AppDetailsMapper.toDomain(app)
+        val apps = service.getAppsList()
+        return apps.map { dto ->
+            AppDetailsMapper.toDomain(dto)
         }
     }
 

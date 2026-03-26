@@ -32,7 +32,8 @@ import dev.toothlonely.vkeducation.presentation.screen.appslist.viewmodel.AppsLi
 @Composable
 fun AppsListScreen(
     snackBarHostState: SnackbarHostState,
-    modifier: Modifier = Modifier, onNavigateTo: (Screen) -> Unit
+    modifier: Modifier = Modifier,
+    onNavigateTo: (Screen) -> Unit
 ) {
 
     val viewModel = hiltViewModel<AppsListViewModel>()
