@@ -1,5 +1,6 @@
 package dev.toothlonely.vkeducation.presentation.screen.appdetails
 
+import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -11,6 +12,7 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.Channel.Factory.BUFFERED
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -53,16 +55,14 @@ class AppDetailsViewModel @Inject constructor(
     fun getAppDetails() {
         viewModelScope.launch {
             _state.value = AppDetailsState.Loading
-
-            runCatching {
-                val appDetails = getAppDetailsUseCase(appId)
-
+            getAppDetailsUseCase(appId).catch { e ->
+                _state.value = AppDetailsState.Error
+                Log.e("!!!", "${e.message}")
+            }.collect { appDetails ->
                 _state.value = AppDetailsState.Content(
                     appDetails = appDetails,
-                    descriptionCollapsed = false,
+                    descriptionCollapsed = false
                 )
-            }.onFailure {
-                _state.value = AppDetailsState.Error
             }
         }
     }
