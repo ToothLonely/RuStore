@@ -24,6 +24,8 @@ fun AppDetailsContent(
     onInstallClick: () -> Unit,
     onReadMoreClick: () -> Unit,
     onDeveloperClick: () -> Unit,
+    onFavoriteClick: () -> Unit,
+    isFavorite: Boolean,
     modifier: Modifier = Modifier,
 ) {
     val appDetails = content.appDetails
@@ -33,6 +35,8 @@ fun AppDetailsContent(
         Toolbar(
             onBackClick = onBackClick,
             onShareClick = onShareClick,
+            onFavoriteClick = onFavoriteClick,
+            isFavorite = isFavorite
         )
         Spacer(Modifier.height(8.dp))
         AppDetailsHeader(
@@ -47,7 +51,7 @@ fun AppDetailsContent(
                 .padding(horizontal = 16.dp)
         )
         Spacer(Modifier.height(12.dp))
-        if(appDetails.screenshotUrlList != null){
+        if (appDetails.screenshotUrlList != null) {
             ScreenshotsList(
                 screenshotUrlList = appDetails.screenshotUrlList,
                 contentPadding = PaddingValues(horizontal = 16.dp),
@@ -107,6 +111,8 @@ private fun Preview() {
             onShareClick = {},
             onInstallClick = {},
             onDeveloperClick = {},
+            onFavoriteClick = {},
+            isFavorite = false,
             modifier = Modifier.fillMaxSize(),
         )
     }

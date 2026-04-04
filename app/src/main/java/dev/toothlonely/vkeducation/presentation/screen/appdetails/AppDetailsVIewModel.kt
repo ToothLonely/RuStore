@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.toothlonely.vkeducation.domain.GetAppDetailsUseCase
+import dev.toothlonely.vkeducation.domain.AppDetailsRepository
 import dev.toothlonely.vkeducation.presentation.navigation.Screen
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.Channel.Factory.BUFFERED
@@ -20,7 +20,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AppDetailsViewModel @Inject constructor(
-    private val getAppDetailsUseCase: GetAppDetailsUseCase,
+    private val repository: AppDetailsRepository,
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
@@ -33,7 +33,7 @@ class AppDetailsViewModel @Inject constructor(
     val events = _events.receiveAsFlow()
 
     init {
-        getAppDetails()
+        loadAndObserve()
     }
 
     fun showUnderDevelopmentMessage() {
@@ -52,18 +52,33 @@ class AppDetailsViewModel @Inject constructor(
         }
     }
 
-    fun getAppDetails() {
+    fun loadAndObserve() {
         viewModelScope.launch {
             _state.value = AppDetailsState.Loading
-            getAppDetailsUseCase(appId).catch { e ->
+            repository.getAppDetails(appId)
+            observeAppDetails()
+        }
+    }
+
+    private suspend fun observeAppDetails() {
+        repository.observeAppDetails(appId)
+            .catch { e ->
                 _state.value = AppDetailsState.Error
                 Log.e("!!!", "${e.message}")
-            }.collect { appDetails ->
-                _state.value = AppDetailsState.Content(
-                    appDetails = appDetails,
-                    descriptionCollapsed = false
-                )
             }
+            .collect { appDetails ->
+                appDetails?.let {
+                    _state.value = AppDetailsState.Content(
+                        appDetails = appDetails,
+                        descriptionCollapsed = false,
+                    )
+                }
+            }
+    }
+
+    fun toggleWishlist() {
+        viewModelScope.launch {
+            repository.toggleWishlist(appId)
         }
     }
 }
