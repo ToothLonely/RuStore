@@ -9,5 +9,6 @@ data class AppDetails(
     val size: Double,
     val iconUrl: String,
     val screenshotUrlList: List<String>? = null,
+    val isInWishlist: Boolean = false,
     val description: String,
 )
