@@ -13,6 +13,7 @@ class AppDetailsEntityMapper {
             size = domain.size,
             iconUrl = domain.iconUrl,
             screenshots = null,
+            isInWishlist = domain.isInWishlist,
             description = domain.description
         )
 
@@ -25,6 +26,7 @@ class AppDetailsEntityMapper {
             size = entity.size,
             iconUrl = entity.iconUrl,
             screenshotUrlList = null,
+            isInWishlist = entity.isInWishlist,
             description = entity.description
         )
     }
