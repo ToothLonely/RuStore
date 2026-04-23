@@ -14,7 +14,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.toothlonely.vkeducation.domain.AppDetails
-import dev.toothlonely.vkeducation.domain.Category
 import dev.toothlonely.vkeducation.presentation.ui.theme.VKEducationTheme
 
 @Composable
@@ -25,6 +24,8 @@ fun AppDetailsContent(
     onInstallClick: () -> Unit,
     onReadMoreClick: () -> Unit,
     onDeveloperClick: () -> Unit,
+    onFavoriteClick: () -> Unit,
+    isFavorite: Boolean,
     modifier: Modifier = Modifier,
 ) {
     val appDetails = content.appDetails
@@ -34,10 +35,12 @@ fun AppDetailsContent(
         Toolbar(
             onBackClick = onBackClick,
             onShareClick = onShareClick,
+            onFavoriteClick = onFavoriteClick,
+            isFavorite = isFavorite
         )
         Spacer(Modifier.height(8.dp))
         AppDetailsHeader(
-            app = appDetails,
+            appDetails = appDetails,
             modifier = Modifier.padding(horizontal = 16.dp),
         )
         Spacer(Modifier.height(16.dp))
@@ -48,10 +51,12 @@ fun AppDetailsContent(
                 .padding(horizontal = 16.dp)
         )
         Spacer(Modifier.height(12.dp))
-        ScreenshotsList(
-            screenshotUrlList = appDetails.screenshotUrlList,
-            contentPadding = PaddingValues(horizontal = 16.dp),
-        )
+        if (appDetails.screenshotUrlList != null) {
+            ScreenshotsList(
+                screenshotUrlList = appDetails.screenshotUrlList,
+                contentPadding = PaddingValues(horizontal = 16.dp),
+            )
+        }
         Spacer(Modifier.height(12.dp))
         AppDescription(
             description = appDetails.description,
@@ -87,9 +92,9 @@ private fun Preview() {
                     id = "",
                     name = "Гильдия Героев: Экшен ММО РПГ",
                     developer = "VK Play",
-                    category = Category.GAME,
+                    category = "Category.GAME",
                     ageRating = 12,
-                    size = 223.7f,
+                    size = 223.7,
                     screenshotUrlList = listOf(
                         "https://static.rustore.ru/imgproxy/-y8kd-4B6MQ-1OKbAbnoAIMZAzvoMMG9dSiHMpFaTBc/preset:web_scr_lnd_335/plain/https://static.rustore.ru/apk/393868735/content/SCREENSHOT/dfd33017-e90d-4990-aa8c-6f159d546788.jpg@webp",
                         "https://static.rustore.ru/imgproxy/dZCvNtRKKFpzOmGlTxLszUPmwi661IhXynYZGsJQvLw/preset:web_scr_lnd_335/plain/https://static.rustore.ru/apk/393868735/content/SCREENSHOT/60ec4cbc-dcf6-4e69-aa6f-cc2da7de1af6.jpg@webp",
@@ -106,6 +111,8 @@ private fun Preview() {
             onShareClick = {},
             onInstallClick = {},
             onDeveloperClick = {},
+            onFavoriteClick = {},
+            isFavorite = false,
             modifier = Modifier.fillMaxSize(),
         )
     }
