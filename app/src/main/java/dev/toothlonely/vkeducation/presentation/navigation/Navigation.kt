@@ -6,8 +6,6 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.toRoute
-import dev.toothlonely.vkeducation.data.STUB
 import dev.toothlonely.vkeducation.presentation.screen.appdetails.AppDetailsScreen
 import dev.toothlonely.vkeducation.presentation.screen.appslist.ui.AppsListScreen
 import kotlinx.serialization.Serializable
@@ -18,7 +16,7 @@ sealed interface Screen {
     data object AppsList : Screen
 
     @Serializable
-    data class AppDetails(val applicationName: String) : Screen
+    data class AppDetails(val applicationId: String) : Screen
 }
 
 @Composable
@@ -41,8 +39,6 @@ fun Navigation(
         }
 
         composable<Screen.AppDetails> { backStackEntry ->
-            val appName = backStackEntry.toRoute<Screen.AppDetails>().applicationName
-            val appItem = STUB.getAppByName(appName)
             AppDetailsScreen()
         }
     }

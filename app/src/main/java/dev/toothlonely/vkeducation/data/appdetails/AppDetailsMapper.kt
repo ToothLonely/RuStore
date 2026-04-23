@@ -1,17 +1,18 @@
-package dev.toothlonely.vkeducation.data
+package dev.toothlonely.vkeducation.data.appdetails
 
 import dev.toothlonely.vkeducation.domain.AppDetails
 
 class AppDetailsMapper {
     companion object {
         fun toDomain(dto: AppDetailsDto) = AppDetails(
+            id = dto.id,
             name = dto.name,
             developer = dto.developer,
-            category = CategoryMapper.toDomain(dto.category),
+            category = dto.category,
             ageRating = dto.ageRating,
             size = dto.size,
             iconUrl = dto.iconUrl,
-            screenshotUrlList = dto.screenshotUrlList,
+            screenshotUrlList = dto.screenshots,
             description = dto.description,
         )
     }

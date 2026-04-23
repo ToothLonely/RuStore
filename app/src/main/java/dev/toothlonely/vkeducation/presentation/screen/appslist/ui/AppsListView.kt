@@ -27,7 +27,7 @@ fun AppsListView(apps: List<AppDetails>, onNavigateTo: (Screen) -> Unit = {}) {
                 application = appItem,
                 modifier = Modifier
                     .clickable {
-                        onNavigateTo(Screen.AppDetails(applicationName = appItem.name))
+                        onNavigateTo(Screen.AppDetails(applicationId = appItem.id))
                     }
             )
 

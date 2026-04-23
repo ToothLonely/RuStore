@@ -15,13 +15,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import dev.toothlonely.vkeducation.R
-import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.flow.Flow
 
 @Composable
 fun AppDetailsScreen() {
-    val viewModel = viewModel<AppDetailsViewModel>()
+    val viewModel = hiltViewModel<AppDetailsViewModel>()
     val state by viewModel.state.collectAsState()
     val events = viewModel.events
 
@@ -50,7 +50,7 @@ fun AppDetailsScreen() {
 
             is AppDetailsState.Error -> {
                 AppDetailsError(
-                    onRefreshClick = { viewModel.getAppDetails() },
+                    onRefreshClick = { viewModel.loadAndObserve() },
                     modifier = Modifier
                         .fillMaxSize()
                         .safeDrawingPadding()
@@ -77,6 +77,10 @@ fun AppDetailsScreen() {
                     onDeveloperClick = {
                         viewModel.showUnderDevelopmentMessage()
                     },
+                    onFavoriteClick = {
+                        viewModel.toggleWishlist()
+                    },
+                    isFavorite = currentState.appDetails.isInWishlist,
                     modifier = Modifier
                         .fillMaxSize()
                         .safeDrawingPadding()

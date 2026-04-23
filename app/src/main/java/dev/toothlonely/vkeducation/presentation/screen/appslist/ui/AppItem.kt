@@ -72,7 +72,7 @@ fun AppItem(
                 overflow = TextOverflow.Ellipsis
             )
             Text(
-                text = application.category.name,
+                text = application.category,
                 style = applicationCategoryTextStyle
             )
         }
