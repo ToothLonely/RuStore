@@ -47,11 +47,19 @@ android {
 }
 
 dependencies {
+
+    ksp(libs.room.compiler)
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+
     ksp(libs.hilt.android.compiler)
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation)
 
     implementation(libs.okhttp)
+    implementation(libs.retrofit.converter)
+    implementation(libs.retrofit)
+    implementation(libs.okhttp.logging)
 
     implementation(libs.coil.comopse)
     implementation(libs.coil.network.okhttp)

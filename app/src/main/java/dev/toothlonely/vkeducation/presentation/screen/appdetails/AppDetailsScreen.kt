@@ -50,7 +50,7 @@ fun AppDetailsScreen() {
 
             is AppDetailsState.Error -> {
                 AppDetailsError(
-                    onRefreshClick = { viewModel.getAppDetails() },
+                    onRefreshClick = { viewModel.loadAndObserve() },
                     modifier = Modifier
                         .fillMaxSize()
                         .safeDrawingPadding()
@@ -77,6 +77,10 @@ fun AppDetailsScreen() {
                     onDeveloperClick = {
                         viewModel.showUnderDevelopmentMessage()
                     },
+                    onFavoriteClick = {
+                        viewModel.toggleWishlist()
+                    },
+                    isFavorite = currentState.appDetails.isInWishlist,
                     modifier = Modifier
                         .fillMaxSize()
                         .safeDrawingPadding()

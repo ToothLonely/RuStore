@@ -22,7 +22,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
 import dev.toothlonely.vkeducation.domain.AppDetails
 import dev.toothlonely.vkeducation.presentation.navigation.Screen
 import dev.toothlonely.vkeducation.presentation.screen.appslist.viewmodel.AppsListEvent
@@ -32,7 +31,8 @@ import dev.toothlonely.vkeducation.presentation.screen.appslist.viewmodel.AppsLi
 @Composable
 fun AppsListScreen(
     snackBarHostState: SnackbarHostState,
-    modifier: Modifier = Modifier, onNavigateTo: (Screen) -> Unit
+    modifier: Modifier = Modifier,
+    onNavigateTo: (Screen) -> Unit
 ) {
 
     val viewModel = hiltViewModel<AppsListViewModel>()
