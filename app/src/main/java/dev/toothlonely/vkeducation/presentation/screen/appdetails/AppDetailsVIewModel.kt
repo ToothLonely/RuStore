@@ -1,16 +1,18 @@
 package dev.toothlonely.vkeducation.presentation.screen.appdetails
 
+import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.toothlonely.vkeducation.domain.GetAppDetailsUseCase
+import dev.toothlonely.vkeducation.domain.AppDetailsRepository
 import dev.toothlonely.vkeducation.presentation.navigation.Screen
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.Channel.Factory.BUFFERED
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -18,7 +20,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AppDetailsViewModel @Inject constructor(
-    private val getAppDetailsUseCase: GetAppDetailsUseCase,
+    private val repository: AppDetailsRepository,
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
@@ -31,7 +33,7 @@ class AppDetailsViewModel @Inject constructor(
     val events = _events.receiveAsFlow()
 
     init {
-        getAppDetails()
+        loadAndObserve()
     }
 
     fun showUnderDevelopmentMessage() {
@@ -50,20 +52,33 @@ class AppDetailsViewModel @Inject constructor(
         }
     }
 
-    fun getAppDetails() {
+    fun loadAndObserve() {
         viewModelScope.launch {
             _state.value = AppDetailsState.Loading
+            repository.getAppDetails(appId)
+            observeAppDetails()
+        }
+    }
 
-            runCatching {
-                val appDetails = getAppDetailsUseCase(appId)
-
-                _state.value = AppDetailsState.Content(
-                    appDetails = appDetails,
-                    descriptionCollapsed = false,
-                )
-            }.onFailure {
+    private suspend fun observeAppDetails() {
+        repository.observeAppDetails(appId)
+            .catch { e ->
                 _state.value = AppDetailsState.Error
+                Log.e("!!!", "${e.message}")
             }
+            .collect { appDetails ->
+                appDetails?.let {
+                    _state.value = AppDetailsState.Content(
+                        appDetails = appDetails,
+                        descriptionCollapsed = false,
+                    )
+                }
+            }
+    }
+
+    fun toggleWishlist() {
+        viewModelScope.launch {
+            repository.toggleWishlist(appId)
         }
     }
 }
